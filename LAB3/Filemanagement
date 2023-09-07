@@ -1,0 +1,111 @@
+Scenario 1: Navigating the File System
+Manoj: Hey Ganesh, let's start with some basics. Can you navigate to your home directory?
+Ganesh: Sure, I'll do that. cd ~
+Scenario 2: Absolute Path
+Manoj: Excellent! Now, try creating a file named "report.txt" in your Documents directory using an absolute path.
+Ganesh: Got it! touch ~/Document/report.txt
+Rectify any error if you copy-pasted it. You need to type the exact proper name , so use Tab to auto-complete. Difference in Document and Documents dir.
+
+Scenario 3: Relative Path
+Manoj: Good job, Ganesh! Now, navigate to your Downloads directory and create a file named "notes.txt" using a relative path.
+Ganesh: Okay! cd ~/Downloads and then touch notes.txt
+Scenario 4: Root Directory
+Manoj: Let's get adventurous! Navigate to the root directory.
+Ganesh: Sure thing! cd /
+Scenario 5: Moving Between Directories
+Manoj: Now, navigate back to your home directory and create a directory called "my_folder."
+Ganesh: Back home! cd ~ and mkdir my_folder
+Scenario 6: Copying Files
+Manoj: Great! Inside "my_folder," make a copy of "report.txt" from the Documents directory.
+Ganesh: Got it! cp ~/Documents/report.txt my_folder/report_copy.txt
+(You need to create a file before copying or moving, hence create one if needed hint: Hand.)
+Scenario 7: Renaming Files
+Manoj: Rename "report_copy.txt" to "final_report.txt" within "my_folder."
+Ganesh: Alright! mv my_folder/report_copy.txt my_folder/final_report.txt
+Scenario 8: Removing Files
+Manoj: Now, delete "final_report.txt" from "my_folder."
+Ganesh: Sure thing! rm my_folder/final_report.txt
+(Not working? Make sure you are in correct working directory using pwd and then use the above relative path.)
+Scenario 9: Removing Directories
+Manoj: Remove the entire "my_folder."
+Ganesh: rm -r my_folder
+Scenario 10: Creating Multiple Directories
+Manoj: Create directories "project/A" in your home directory.
+Ganesh: Done! mkdir -p project/A
+Scenario 11: Moving Files
+Manoj: Move "notes.txt" from Downloads to "project/A."
+Ganesh: Sure! mv ~/Downloads/notes.txt ~/project/A/
+Scenario 12: Copying Directories
+Manoj: Create a copy of the "Downloads" directory named "Downloads_backup."
+Ganesh: ok let me check content of ls ~/Downloads and then use cd ~ and  cp -r Downloads Downloads_backup
+Scenario 13: Listing Hidden Files
+Manoj: Use ls -a to see if there are any hidden files in your home directory.
+Ganesh: Checking now... Yep, some hidden files are there!
+Scenario 14: Displaying File Content
+Manoj: Display the contents of "notes.txt." using absolute path with ~.
+Ganesh: cat ~/Downloads/notes.txt
+Scenario 15: Finding Files
+Manoj: Use find to locate all ".txt" files in your home directory.
+Ganesh: find ~ -name "*.txt"
+Scenario 16: Recursive File Listing
+Manoj: To set up, I've created a directory structure in your "Documents" directory with some files and subdirectories. Please list all files and subdirectories recursively in the "myfiles" directory and display their full paths.
+Ganesh: Sure, I'll use find Documents/myfiles/ -type f -o -type d.
+Scenario 17: Navigating to Parent Directory
+Manoj: You are currently in the "backup" directory. Navigate to the parent directory.
+Ganesh: I'll go up one directory: cd ...
+Scenario 18: Copying Files with a Different Name
+Manoj: In your "Downloads" directory, I've created a file named "report.txt." Please copy it to your home directory but rename it to "monthly_report.txt."
+Ganesh: I'll use cp Downloads/report.txt ~/monthly_report.txt.
+Scenario 19: File Transfer with Progress
+Manoj: You have a large file named "bigfile.iso" in your "Downloads" directory. Copy it to your "Documents" directory while showing the progress.
+Ganesh: I'll use rsync -ah --progress Downloads/bigfile.iso Documents/.
+Scenario 20: Deleting Files Older Than a Date
+Manoj: In your "backup" directory, I've created some files with various timestamps. Please delete all files in the "oldfiles" directory that are older than 30 days.
+Ganesh: I'll use find backup/oldfiles/ -type f -mtime +30 -exec rm {} +.
+Scenario 21: Copying Files from Remote Server
+Manoj: You need to copy a file named "data.txt" from a remote server with IP address 192.168.1.100, using SSH, to your home directory.
+Ganesh: I'll use scp user@192.168.1.100:/path/to/data.txt ~/.
+Scenario 22: File Permission Check
+Manoj: Check the permissions of the file "secret.txt" in your home directory and display them.
+Ganesh: I'll use ls -l secret.txt to check the permissions.
+Scenario 23: File Backup and Timestamp
+Manoj: Create a backup of the file "important.doc" in your "Documents" directory by appending the current timestamp to its name.
+Ganesh: I'll create a backup using cp Documents/important.doc Documents/important_$(date '+%Y%m%d%H%M%S').doc.
+Scenario 24: Creating Symbolic Links
+Manoj: Create a symbolic link named "mylink" in your home directory, pointing to the file "targetfile.txt" in your "Documents" directory.
+Ganesh: I'll create the symbolic link using ln -s Documents/targetfile.txt ~/mylink.
+Scenario 25: Disk Space Check for All Partitions
+Manoj: Check the disk space usage for all partitions on your system.
+Ganesh: I'll use df -h to check disk space for all partitions.
+Scenario 26: Directory Size Calculation
+Manoj: Calculate the size of your "pictures" directory and display it in a human-readable format.
+Ganesh: I'll use du -sh pictures/ to calculate and display the size.
+Scenario 27: File Search and Move
+Manoj: Search for all files in your home directory containing the word "invoice" and move them to the "invoices" directory.
+Ganesh: I'll use find ~/ -type f -name "*invoice*" -exec mv {} invoices/ \;.
+Scenario 28: Identifying Large Files
+Manoj: Identify the largest files in your "Downloads" directory and list them in descending order of size.
+Ganesh: I'll use du -h ~/Downloads | sort -rh | head -n 10 to find and list the largest files.
+Scenario 29: Filesystem Check and Repair
+Manoj: Perform a filesystem check on your root partition and automatically repair any errors found.
+Ganesh: I'll use fsck -y /dev/sda1 to check and repair the root filesystem.
+Scenario 30: Counting Files in a Directory
+Manoj: Count the number of files in your "Documents" directory, excluding subdirectories.
+Ganesh: I'll use find Documents/ -maxdepth 1 -type f | wc -l to count the files.
+Scenario 31: Recursive Directory Deletion
+Manoj: Delete the entire "tmp" directory and its contents, including subdirectories.
+Ganesh: I'll use rm -r tmp/ to delete the directory and its contents recursively.
+Scenario 32: Copying Files with Progress
+Manoj: Copy a directory named "project" from your "Downloads" directory to your "Documents" directory while displaying the progress.
+Ganesh: I'll use rsync -ah --progress Downloads/project/ Documents/.
+Scenario 33: File Permissions for Multiple Files
+Manoj: Change the permissions of all files with the ".txt" extension in your "reports" directory to make them executable.
+Ganesh: I'll use chmod +x reports/*.txt to make them executable.
+Scenario 34: File Content Search
+Manoj: Search for the text "important data" in all text files within your "Documents" directory and its subdirectories.
+Ganesh: I'll use grep -r "important data" Documents/.
+Scenario 35: Disk Usage Summary
+Manoj: Get a summary of the disk usage for your home directory, showing sizes for each subdirectory.
+Ganesh: I'll use du -h --max-depth=1 ~ to generate the summary.
+
+
