@@ -40,7 +40,7 @@ Scenario 7: Redirecting Both stdout and stderr to /dev/null 
 Ganesh: Perfect, Manoj. And to discard both stdout and stderr, I use /dev/null, right? 
 Manoj: Absolutely! To discard both, use this: 
  
-command_with_output_and_errors > /dev/null 2>&1  
+ls /etc/passwd non_existent_file  > /dev/null 2>&1  
  
  
 Scenario 8: Viewing stdout and stderr Together 
